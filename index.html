@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/ambey_favicon.png" type="image/x-icon">
+    <!-- my style -->
+    <link rel="stylesheet" href="style.css">
+    <!-- bootstrap-4 css classes -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <!-- google icon/ -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Ambey Computer Institute</title>
+    <style>
+        .text-color{
+            text-align: right !important;
+            padding:0 5px 0 0;
+            font-family: monospace;
+            font-size:14px;
+            /* display:none; */
+            color:#ff0000 !important;
+        }
+    </style>
+</head>
+<body>
+<!-- -----------------------------------------------------header part------------------------------------------------------------- -->
+   <!-- header -->
+    <header class="header sticky-top p-3" style="background-color: var(--bg);"> 
+        <a href="javascript:location.reload()" data-toggle="tooltip" data-placement="left" title="Ambey Computer">
+            <img src="images/ambey_logo.png" alt="Logo" class="logo">
+        </a>
+        <label for="menu" class="text-white cursor d-md-none mx-3">
+            <i class="material-icons menu" style="font-size:30px">menu</i>
+        </label>
+        <input type="checkbox" id="menu" class="d-none">
+        <nav class="menu-list mt-1 mt-md-1 px-4">
+            <ul>
+                <li><a class="underline text-white" href ="#" onclick="document.body.scrollTop = 0 ;">Home</a></li>
+                <li><a class="underline text-white" href="#about">About</a></li>
+                <li><a class="underline text-white" href="#contact">Contact</a></li>
+                <li class="form">
+                    <button class="btn btn-sm btn-outline-info p-0 px-3 form-control " data-toggle="modal" data-target="#logIn" >LogIn</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <a name="home"></a>
+
+    <!-- -----------------------------------------------------form part------------------------------------------------------------- -->
+    <!-- login form1 -->
+     <div class="modal fade" id="logIn">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <h2 class="text-right"><span class="cursor " style="color:var(--red);" data-dismiss="modal">&times;</span></h2><br>
+                        <h3 class="text-center text-info">Log In </h3>
+                        <hr class="border-info">
+                        <form name="logInForm" action="login.php" method="post" class="form">
+                        <!-- username -->
+                           <label for="username">Enter your Email or Mobile </label>
+                        <div class="input-group">
+                            <i class="material-icons input-group-text rounded-0 border-0 bg-info text-white">person</i>
+                            <input type="text" class="form-control rounded-0" name="username" id="username" placeholder="username" />   
+                        </div>
+                        <p class="text-color" id="errorUsername"></p>
+                        <!-- password -->
+                        <label for="password"  >Password</label>
+                        <div class="input-group">
+                            <i class="material-icons input-group-text rounded-0 border-0 bg-info text-white">key</i>
+                            <input type="password" class="form-control rounded-0" name="password" id="password" placeholder="********"  value=""/> 
+                        </div>
+                        <p class="text-color" id="errorPassword"></p>
+                        <br>
+                        <div class="input-group">
+                            <input type="reset" class=" form-control btn-outline-danger rounded-0 " value="Clear" />&nbsp;&nbsp;
+                            <input type="submit" name="login" id="loginSubmit"class="form-control btn-secondary rounded-0 " disabled  value="Login" />
+                        </div>
+                        <br>
+                        <p> Don't have an Account ? <span  data-toggle="modal" data-target="#signup"  data-dismiss="modal" class="cursor underline" style="color:var(--blue);" >Sign up</span></p>
+                       </form>
+                       <br>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sign up form // -->
+    <div class="modal fade" id="signup">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container">
+                        <h2 class="text-right"><span class="cursor " style="color:var(--red);" data-dismiss="modal">&times;</span></h2><br>
+                        <h3 class="text-center text-info"> Sign Up </h3>
+                        <hr class="border-info">
+                        <form name="logInForm" action="signup.php"  method="post" class="form">
+                             <!-- name -->
+                           <label for="name">Full Name </label>
+                        <div class="input-group">
+                            <i class="material-icons input-group-text rounded-0 border-0 bg-info text-white">person</i>
+                            <input type="text" class="form-control rounded-0" name="name" id="name" placeholder="Name" />   
+                        </div>
+                        <p class="text-color" id="errorname"></p>
+                        <!-- email -->
+                        <label for="mobile">Mobile</label>
+                        <div class="input-group">
+                            <i class="material-icons input-group-text rounded-0 border-0 bg-info text-white">call</i>
+                            <input type="tel" class="form-control rounded-0" name="mobile" id="mobile" placeholder="Your mobile number" />   
+                        </div>
+                        <p class="text-color" id="errormobile"></p>
+                        <!-- mobile number -->
+                        <label for="username">Email</label>
+                        <div class="input-group">
+                            <i class="material-icons input-group-text rounded-0 border-0 bg-info text-white">email</i>
+                            <input type="email" class="form-control rounded-0" name="signup_email" id="signup_email" placeholder="Your email" />   
+                        </div>
+                        <p class="text-color" id="errorsignup_email"></p>
+                        <!-- password -->
+                        <label for="password"  >Password</label>
+                        <div class="input-group">
+                            <i class="material-icons input-group-text rounded-0 border-0 bg-info text-white">lock</i>
+                            <input type="password" class="form-control rounded-0" name="password" id="signup_password" placeholder="Password"  value=""/> 
+                        </div>
+                        <label for="confirmpassword"  >Confirm password</label>
+                        <!-- confirmpassword -->
+                        <div class="input-group">
+                            <i class="material-icons input-group-text rounded-0 border-0 bg-info text-white">lock</i>
+                            <input type="password" class="form-control rounded-0" id="confirmpassword" placeholder="Confirm password" />   
+                        </div>
+                        <p class="text-color" style="display: block;" id="error_password"></p>
+                        <p>
+                            <input type="checkbox" id="checkbox" style="height:15px;width:15px" />&nbsp;&nbsp;
+                            <label for="checkbox"><b>“agree to terms and conditions”</b></label>
+                        </p>
+                        <div class="input-group">
+                            <input type="reset" class=" form-control btn-outline-danger rounded-0 " value="Clear" />&nbsp;&nbsp;
+                            <input type="submit" name="signup" id="signupSubmit" class=" form-control btn-secondary rounded-0 " disabled value="Submit" />
+                        </div>
+                        <br>
+                       </form>
+                       <br>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+<!-- <script src="form.js"></script> -->
+<!-- -----------------------------------------------------main body part------------------------------------------------------------- -->
+    <!-- main body part -->
+        <main class="row m-0 ">
+        <!-- section_1section_1section_1section_1 -->
+        <div class="col-12 section_1 p-0 text-white ">
+            <div>
+                <div class="container text-right mt-3 pr-md-3 pr-lg-5 d-none d-sm-block">
+                    <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/whatsapp.png" title="whatsapp" height="30px" width="30px" /></a> | 
+                    <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/facebook.png" title="Facebook" height="30px" width="30px" /></a> | 
+                    <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/linkdin.png" title="Linkdin" height="30px" width="30px" /></a> | 
+                    <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/instagram.png" title="Instagram" height="30px" width="30px" /></a> | 
+                    <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/twitter.png" title="Twitter" height="30px" width="30px" /></a>
+                </div>
+
+                <div class="text-white container mt-5  mt-md-2 pl-md-3 pl-lg-5 display-3">Hello, Learner</div>
+                <div class="text-white container h1  my-2 p-md-3 p-lg-5 " style="font-size:30px;line-height:50px;">
+                    <span>अम्बे कम्प्युटर इंस्टीट्यूट में आपका स्वागत है </span>
+                    <span class="d-none d-sm-inline">, आपने अपने जीवन को और सरल बनाने के लिए एक अच्छा विकल्प चुना है</span>
+                    <span class="d-none d-md-inline"> ,हमारे साथ जुड़े और सीखे नई-नई टेक्नोलोगी जुडने के लिए अभी इनरोल करें ।</span>
+                </div>
+                <br>
+                <div class="container my-2 pl-5">
+                    <button data-toggle="modal" data-target="#signup"  class="btn btn-lg px-5 btn-info">Enroll Now </button>
+                </div>
+                <div class="container my-5 pl-5" style="height:10px;"> </div>
+            </div>
+        </div>
+        <!-- student coount graph -->
+        <div class="col-12 p-0 py-2 my-md-5 ">
+            <a name="about"></a>
+            <div class="row m-0">
+                <!-- student counter -->
+                <div class="d-none d-md-block col-md-4 ">
+                    <div class="panel bg-success shadow my-1">
+                        <div class="panel-heading row m-0 p-2">
+                            <div class="col-4">
+                                <img src="images/social_logo/student.png" style="height:100px;width:100px;">
+                            </div>
+                            <div class="col-8 text-white">
+                                <p class="text-center  display-4 student_count" >100+</p>
+                                <h5 class="text-center font-weight-bold ">Total Student</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- courses counter -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="panel bg-warning shadow my-1">
+                        <div class="panel-heading row m-0 p-2">
+                            <div class="col-4">
+                                <img src="images/social_logo/course.png" style="height:100px;width:100px;">
+                            </div>
+                            <div class="col-8 text-white">
+                               <p class="text-center  display-4 course_count" >100+</p>
+                                <h5 class="text-center font-weight-bold ">Courses</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- active student counter -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="panel bg-danger shadow my-1">
+                        <div class="panel-heading row m-0 p-2">
+                            <div class="col-4">
+                                <img src="images/social_logo/active_stu.png" style="height:100px;width:100px;">
+                            </div>
+                            <div class="col-8 text-white">
+                                <p class="text-center display-4 active_stu_count" >100+</p>
+                                 <h5 class="text-center font-weight-bold ">Active Student</h5>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-2 m-0 textsection_1 my-md-5">
+            <!-- text ============================ -->
+            <div class="col-md-6 ">
+                <div style="margin:1px auto ; height:auto; width:70%">
+                    <img src="images/first-section.png"  height="100%" width="100%"/>
+                </div>
+            </div>
+            <div class="col-md-6 text-white">
+                    <h2 class="text-center display-3">About Us</h2>
+                    <hr class="border-white">
+                    <p class="text-center text-monospace" style="font-size:30px ;"> <span style="font-size: 30px;">``</span>
+                        यह संस्था पिछले 15 वर्षो से  कम्प्युटर शिक्षा के क्षेत्र मे कार्यरत है , हमने बहुत से बच्चो के सपनों को साकार किया है , हमसे जुड़कर आप भी पाने सपने पूरे केआर सकते है तो मौका हाथ से न जाने दे और अभी हमसे  जुड़े ।
+                    </p>                   
+           </div>
+        </div>
+        <div class="row my-2 m-0 textsection_2 my-md-5">
+            <!-- text==================================== -->
+            <div class="col-md-6 d-md-none">
+                <div style="margin:1px auto ; height:auto; width:70%">
+                    <img src="images/second-section.png"  height="100%" width="100%"/>
+                </div>
+            </div>
+            <div class="col-md-6 text-white">
+                <h2 class="display-3 text-center">Our Courses</h2>
+                <hr class="border-white">
+                <p class="text-center text-monospace" style="font-size:30px ;">
+                    <span style="font-size: 30px;">``</span>
+                    हमारे संस्थान मे आपके लिए लगभग कम्प्युटर के सारे कोर्स उपलब्ध है जैसे कि :-  CCC, ECC , ADCA , O’LEVEL, A'LEVEL, DCA PGDCA, MCA, DFA, HARDWARE AND NETWORKING, ACCOUNTING, CODING AND ENGLISH SPEAKING COURSE(Free) इत्यादि ।
+                </p>
+            </div>
+            <div class="col-md-6  d-none d-md-inline-block">
+            <div style="margin:1px auto ; height:auto; width:70%">
+                <img src="images/second-section.png"  height="100%" width="100%"/>
+            </div>
+           </div>
+        </div>
+        
+    </main>
+    <!-- ambey faculties -->
+    <div class="row m-0 mb-lg-5 py-4 text-white text-center" style="background: var(--imgfac) no-repeat center;background-size:cover;">
+        <div class="col-12">
+            <h2>
+                Provided Facilit
+            </h2>
+            <hr class="border-white">  
+        </div>
+        <div class="col-lg-3 col-md-4 mb-2 col-sm-6 " style="font-size:20px;">
+            यहाँ आपको ऑनलाइन टेस्ट और लाइव चैट की सुविधा मिलती है।
+        </div>
+        <div class="col-lg-3 col-md-4  col-sm-6 " style="font-size:20px;">
+            हमारे इंस्टीट्यूट आपको डिजिटल क्लासरूम  की सुविधाए उपलब्ध है 
+        </div>
+        <div class="col-lg-3 col-md-4 d-none d-md-block" style="font-size:20px;">
+            हमारे इंस्टीट्यूट में आपको वातानुकूलित कमरो की सुविधा भी मिलती है 
+        </div>
+        <div class="col-lg-3 d-none d-lg-block" style="font-size:20px;">
+            हमारे इंस्टीट्यूट में नियमित क्लासेस , नियमित प्रैक्टिस ,हर सप्ताह टेस्ट होता है।
+        </div>   
+    </div>
+
+<!-- -----------------------------------------------------footer part------------------------------------------------------------- -->
+    <!-- footer part -->
+    <footer class=" text-white" id="contact" style="background-color: var(--bg);">
+        <div class=" m-0 row">
+            <!-- footter info part 1 -->
+           <div class="col-lg-5 p-3 pl-md-5 p-0">
+                <div class="row">
+                    <div class="col-12 p-2">
+                       <div >
+                            <img src="images/ambey_logo.png" height="90px" data-toggle="tooltip" title=" अंबे कंप्यूटर इंस्टिट्यूट " data-placement="right">
+                       </div>
+                            <h3 class="m-3">आपका अपना इंस्टिट्यूट</h3>    
+                    </div>
+                    <div class="mt-4 col-12 text-center ">
+                        <p class="h4 text-center">
+                            Follow us 
+                        </p>
+                        <hr class="border-white">
+                        <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/whatsapp.png" title="whatsapp" height="30px" width="30px" /></a> | 
+                        <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/facebook.png" title="Facebook" height="30px" width="30px" /></a> | 
+                        <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/linkdin.png" title="Linkdin" height="30px" width="30px" /></a> | 
+                        <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/instagram.png" title="Instagram" height="30px" width="30px" /></a> | 
+                        <a class="text-white mx-2 " href="#"><img data-toggle="tooltip" src="images/social_logo/twitter.png" title="Twitter" height="30px" width="30px" /></a>
+                    </div>
+                </div>
+            </div>
+            <!-- footter info part 2 -->
+           <div class="col-lg-7 p-0" >
+               <div class="row m-0 ">
+                    <div class="col-md-5 p-2">
+                        <p class="h4 text-center">
+                            Contact Us 
+                        </p>
+                        <hr class="border-white">
+                        <div class="p-3">
+                            <ul class="ul-list">
+                                <li class="m-2">
+                                    <i class="material-icons pr-2" style="font-size:23px">local_phone</i>
+                                    &nbsp;
+                                    <a class="text-white underline" style="font-size:18px" href="#">+91 0000000000</a>
+                                </li>
+                                <li class="m-2">
+                                    <i class="material-icons pr-2" style="font-size:23px">email</i>
+                                    &nbsp;
+                                    <a class="text-white underline" style="font-size:18px" href="#">xyz@example.com</a>
+                                </li>
+                                <li class="m-2">
+                                    <i class="material-icons pr-2" style="font-size:23px">public</i>
+                                    &nbsp;
+                                    <a class="text-white underline" style="font-size:18px" href="#">www.ambeyco.in</a>
+                                </li>
+                                <li class="m-2">
+                                    <i class="material-icons pr-2" style="font-size:23px">location_on</i>
+                                    &nbsp;
+                                    <a class="text-white underline" style="font-size:18px" href="#">sahu ki charahi kunda</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-7 p-2">
+                        <p class="h4 text-center">
+                            Get in Touch 
+                        </p>
+                        <hr class="border-white">
+                        <div class="container-fluid form ">
+                            <form action="#">
+                                <div class="input-group my-2">
+                                    <label for="qName" class="input-group-text bg-info text-white border-0 rounded-0 ">Name</label>
+                                    <input type="text" class="form-control rounded-0 " name="name" id="qName" placeholder="Name" />
+                                </div>
+                                <div class="input-group my-2">
+                                    <label for="qEmail" class="input-group-text bg-info text-white border-0 rounded-0 ">Email&nbsp;</label>
+                                    <input type="text" class="form-control rounded-0 " name="email" id="qEmail" placeholder="xyz@example.com" />
+                                </div>
+                                <label for="qmsg" class="input-group-text bg-info text-white border-0 rounded-0 mt-2">Type Your Question</label>
+                                <div class="input-group  mb-2">
+                                    <textarea type="text" class="form-control rounded-0" name="massege" id="qmsg" rows="3" style="resize: none;" placeholder="Write Something....."></textarea>
+                                </div>
+                                <div class="input-group my-2">
+                                    <input type="button" class="form-control btn btn-info rounded-0 " value="Submit Question" data-toggle="modal" data-target="#logIn" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+               </div>
+           </div>
+        </div>
+        <!-- tradmark -->
+        <div class=" text-center py-2" style="background-color: #111111;" >
+            <span class="d-inline-block">&copy; Copyright 2021-2022</span>
+            <span class="d-none d-sm-inline"> | </span>    
+            <span class="d-inline-block">&reg; All Rights Reserved </span>    
+            <span class="d-none d-md-inline"> | </span>    
+            <span class="d-inline-block">Powerd by <b>Ambey Computer Institute</b></span> 
+        </div>
+    </footer>
+    
+
+    <!-- jQuery library -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        var menu = document.querySelector('.menu');
+        var menuinput = document.querySelector('#menu');
+        menu.addEventListener("click" ,() => {menu.innerHTML = !menuinput.checked ? "close":"menu";});
+
+    </script>
+<script>
+$(document).ready(function(){
+    // tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $("#password").blur(function(){
+        var username = $("#username").val();
+        var password = $(this).val();
+        if(username.length < 5){
+            $("#errorUsername").html("invalid mobile or email.");
+        }else{
+             $("#errorUsername").html("");
+            if(password.length < 5){
+                $("#errorPassword").html("invalid password.");
+            }else{
+                $("#errorPassword").html("");
+                $("#loginSubmit").removeClass("btn-secondary");
+                $("#loginSubmit").addClass("btn-outline-info");
+                $("#loginSubmit").attr("disabled",false);
+            }
+        }
+       
+        });
+  
+
+    $("#checkbox").click(function(){
+            var name = $("#name").val();
+            var mob =  $("#mobile").val();
+            var mail =  $("#signup_email").val();
+
+            $.ajax({
+                url:"checkSignup.php",
+                method:"POST",
+                data:{mobile:mob,email:mail},
+                success:function(data){
+                    if(name.length < 3){
+                        $("#errorname").text("Invalid name.");
+                    }else{
+                        $("#errorname").text("");
+                        if(mob == ""){
+                            $("#errormobile").text("Invalid mobile number.");
+                        }else{
+                            if(mail == ""){
+                                  $("#errorsignup_email").text("Invalid Email.");
+                            }else{
+                                if(data == "Mob"){
+                                      $("#errormobile").text("Mobile alreday used.");
+                                }else{
+                                    $("#errormobile").text("");
+                                    if(data == "Email"){
+                                        $("#errorsignup_email").text("Email alreday used.");
+                                    }else{
+                                        $("#errorsignup_email").text("");
+                                        if($("#signup_password").val().length < 6){
+                                            $("#error_password").text("Invalid Password.");
+                                        }else{
+                                            if($("#confirmpassword").val().length < 6 ){
+                                                $("#error_password").text("Invalid comfirm password.");
+                                            }else{
+                                                if($("#signup_password").val() !== $("#confirmpassword").val()){
+                                                    $("#error_password").text("Password does not match.");
+                                                }else{
+                                                    $("#error_password").text("");
+                                                    $(this).attr("disabled", true);
+                                                    $("#signupSubmit").addClass("btn-outline-info");
+                                                    $("#signupSubmit").removeClass("btn-secondary");
+                                                    $("#signupSubmit").attr("disabled", false);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                     
+                            }
+                        }
+                    }
+                }
+            });
+
+    });
+        
+});
+
+</script>
+<script>
+    var  student_count = document.querySelector('.student_count');
+    var  course_count = document.querySelector('.course_count');
+    var  active_stu_count = document.querySelector('.active_stu_count');
+
+    var x=y=z=0;
+    
+    // student count function
+    function studentcount(){
+        student_count.innerHTML = x + "+";
+       if(x == 2500){
+           clearInterval(studentend);
+        }else{
+            x=x+1;
+        }
+    }
+    var studentend = setInterval(studentcount, 10);
+
+    // courses count funciopti
+    function coursecount(){
+        course_count.innerHTML = y + "+";
+       if(y == 40){
+           clearInterval(courseend);
+        }else{
+            y=y+1;
+        }
+    }
+    var courseend = setInterval(coursecount, 100); 
+
+    // avtive student course_count
+    function activestucount(){
+        active_stu_count.innerHTML = z + "+";
+       if(z == 520){
+           clearInterval(activestuend);
+        }else{
+            z=z+1;
+        }
+    }
+    var activestuend = setInterval(activestucount, 20); 
+
+</script>
+</body>
+</html>
